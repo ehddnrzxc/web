@@ -8,7 +8,7 @@
 <body>
   
 <!--
-1. 함수란?
+1. 함수란? 
   1) 함수는 특정 작업을 수행하는 코드 블록으로, 필요할 때마다 호출할 수 있습니다.
   2) 코드의 재사용성, 가독성, 유지보수성, 추상화에 기여합니다.
   3) 자바스크립트에서 함수는 “1급 객체(First-class object)”로, 변수에 할당하거나, 인자로 전달하거나, 반환값으로 사용할 수 있습니다.
@@ -131,7 +131,6 @@
 {
   function info(name, age) {  // 매개변수(Parameter): name, age
     console.log(name, age)
-    document.write(name, age)
   }
 
   info('홍길동', 30)  // 인자(Argument): '홍길동', 30
@@ -289,6 +288,18 @@
   func();
   retFunction()();
 
+  // 연습) 어떤 놀이기구는 몸무게가 90 이상인 경우 이용이 불가능합니다.
+  //       몸무게가 40 미만인 경우 부모의 동의가 있으면 이용이 가능합니다. (confirm 함수를 찾아보세요.)
+  //       나머지 경우에는 부모의 동의가 없어도 이용이 가능합니다.
+  //       prompt를 이용해서 몸무게를 입력 받아 isPossible 함수에 전달합니다.
+  //       isPossible 함수는 놀이기구의 이용이 가능하면 true 아니면 false를 반환합니다.
+  //       최초 실행 시 "놀이기구 탑승이 가능합니다.", "놀이기구 탑승이 거절되었습니다." 중 하나의 메세지를 출력합니다.
+
+  function isPossible(weight) {
+    return weight >= 90 ? false : weight >= 40 ? true : confirm("탑승을 동의하시면 확인, 아니면 취소를 눌러주세요.");
+  }
+
+  document.write(isPossible(prompt("몸무게가 얼마에요?")) ? "<div>놀이기구 탑승이 가능합니다.</div>" : "<div>놀이기구 탑승이 거절되었습니다.</div>");
 }  
 </script>
 </body>
