@@ -297,6 +297,8 @@
 
     // 프로퍼티 수정
     input.type = "password";
+    input.readOnly = false;
+    // input.removeAttribute("readonly");
 
     // 프로퍼티 삭제 (DOM 객체의 프로퍼티는 지울 수 없습니다.)
     delete input.value;  // 동작 안 합니다.
