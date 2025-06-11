@@ -178,7 +178,7 @@
       const xhr = new XMLHttpRequest();
      xhr.open('get', 'https://jsonplaceholder.typicode.com/users/1');
      xhr.addEventListener('load', function() {              // load 이벤트는 요청과 응답이 성공했음을 의미합니다.
-        resolve(JSON.parse(xhr.responseText));                                          // 비동기 작업 성공 시 resolve() 메소드를 호출합니다.
+        resolve(JSON.parse(xhr.responseText));              // 비동기 작업 성공 시 resolve() 메소드를 호출합니다.
      })
      xhr.addEventListener('error', function() {             // error 이벤트는 요청이나 응답이 실패했음을 의미합니다.
         reject(xhr => {
