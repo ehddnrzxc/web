@@ -41,6 +41,7 @@
     (3) 자바스크립트 표현식 삽입
       ① JSX 내부에서 중괄호 {}를 사용해 자바스크립트 변수, 연산, 함수 호출, 주석 등을 삽입할 수 있습니다.
       ② 예시
+        const numA = 1, numB = 2; 
         <h1>{numA} + {numB} = {numA + numB}</h1>    
     (4) 속성 작성
       ① JSX의 속성은 HTML과 비슷하지만, 자바스크립트 예약어와 충돌하지 않도록 일부 속성은 변경된 이름을 사용합니다.
@@ -70,6 +71,65 @@
         - 객체의 속성에 접근
           { obj.a }
   -->
+
+  <div id="root1"></div>
+  <script type="text/babel">
+
+    // JSX를 이용한 Element 만들기
+    const h1Element = <h1>Hello World</h1>;
+
+    // rendering
+    ReactDOM.createRoot(document.getElementById('root1')).render(h1Element);
+
+  </script>
+
+  <hr>
+
+  <div id="root2"></div>
+  <script type="text/babel">
+
+    // 여러 태그를 단일 태그로 생성하기
+    const divElement = <React.Fragment>
+        <div>Hellow World</div>
+        <div>Nice to meet you</div>
+      </React.Fragment>
+
+    // <React.Fragment>의 축약 버전
+    const pElement = <>
+      <p>Hellow World</p>
+      <p>Nice to meet you</p>
+    </>
+
+    // rendering
+    ReactDOM.createRoot(document.getElementById('root2')).render([divElement, pElement]);
+
+  </script>
+
+  <hr>
+
+  <div id="root3"></div>
+  <script type="text/babel">
+
+    // 중괄호 {}를 이용한 표현식 작성/주석 작성
+    
+    const radius = 3.5;
+
+    const circleElement = <>
+      <h1
+        id="radius"
+        className="radius"  // 태그 내부의 주석은 중괄호를 사용하지 않습니다. (주로 시작 태그에 주석을 답니다.)
+      >반지름: {radius}</h1>
+      <h1>원둘레: {2 * Math.PI * radius}</h1>  {/* 태그 외부의 주석은 중괄호를 사용해야 합니다. */}
+      <h1>원넓이: {Math.PI * Math.pow(radius, 2)}</h1>
+      {
+        // 슬래시 2개 주석(single Line comment)은 중괄호와 다른 줄에 작성해야 합니다.
+      }
+    </>
+
+    // rendering
+    ReactDOM.createRoot(document.getElementById('root3')).render(circleElement);
+
+  </script>
 
 </body>
 </html>
