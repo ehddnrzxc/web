@@ -524,14 +524,16 @@
   const MultiSwitch = () => {
     // state
     const [switches, setSwitches] = React.useState([false, false, false])
-    // click event handler
-    const handleClick = e => {
+    // click event 발생 시 동작하는 toggleSwitch 함수
+    const toggleSwtich = id => {
       
     }
 
     return (
       <>
-        <button onClick={handleClick}>{switches}</button> 
+        여기에서는 map으로 button 3개 만들어요
+        각 button을 클릭하면 toggleSwitch 함수를 호출하는데 이 때 각 button의 식별자를 전달해요
+        그럼 toggleSwitch 함수는 해당 식벼자를 받아서 해당 버튼의 ON/OFF를 변경합니다 
       </>
     )
   }
